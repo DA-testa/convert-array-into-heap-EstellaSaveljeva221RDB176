@@ -1,19 +1,18 @@
-# python3
-
+# python3 Estella Saveljeva 221RDB176 7.gr
 
 def build_heap(data):
     swaps = []
+    n = len(data)
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
-
-
     return swaps
-
 
 def main():
     
     # TODO : add input and corresponding checks
     # add another input for I or F 
+    text = input("choose 'I' for input or 'F' for file")
+    
     # first two tests are from keyboard, third test is from a file
 
 
