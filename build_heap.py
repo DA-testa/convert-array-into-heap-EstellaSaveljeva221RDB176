@@ -5,6 +5,18 @@ def build_heap(data):
     n = len(data)
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
+    
+    for i in range(n):
+    mindex = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+    
+    if left <= n-1 and data[left] < data[mindex]:
+        mindex = left
+    if right <= n-1 and data[right] < data[mindex]:
+        mindex = right
+    if i != mindex:
+        data[index], data[mindex] = data[mindex], data[index]
     return swaps
 
 def main():
