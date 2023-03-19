@@ -20,9 +20,9 @@ def heap(data, i, n, swaps)
     if right <= n and data[right] < data[mindex]:
         mindex = right
     if i != mindex:
-        swaps.append((i, mindex))
         data[i], data[mindex] = data[mindex], data[i]
-        heap(data, i, n, swaps)
+        swaps.append((i, mindex))
+        heap(data, mindex, n, swaps)
     
 
 def main():
@@ -31,7 +31,7 @@ def main():
     textInput = input(":").upper()
     if "F" in textInput:
         print("[!] \tEnter file name or file path. For example '0'.")
-        fileName = "tests/" + input(">:: \t")
+        fileName = "tests/" + input(": ")
         if 'a' in fileName:
             print("[Err]: \tForbidden name")
             return   
@@ -44,8 +44,8 @@ def main():
 
     elif "I" in textInput:
         print("[!] \tEnter text below.")
-        n = int(input(">:: \t"))
-        data = list(map(int, input(">:: \t").split()))
+        n = int(input(": "))
+        data = list(map(int, input(": ").split()))
         assert len(data) == n
         swaps = buildHeap(data)
     else:
