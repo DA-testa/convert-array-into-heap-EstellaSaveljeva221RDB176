@@ -9,7 +9,7 @@ def build_heap(data):
         
     return swaps
 
-def heap(data, i, n, swaps)
+def heap(data, i, n, swaps):
     
     mindex = i
     left = 2 * i + 1
