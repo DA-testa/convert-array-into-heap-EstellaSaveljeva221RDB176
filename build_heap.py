@@ -1,37 +1,58 @@
-# python3
-
+# Estella Saveljeva 221RDB176 7.gr
 
 def build_heap(data):
     swaps = []
-    # TODO: Creat heap and heap sort
-    # try to achieve  O(n) and not O(n2)
-
-
+    n = len(data)
+   
+    for i in range(n//2, -1, -1):
+        heap(data, i, n, swaps)
+        
     return swaps
 
+def heap(data, i, n, swaps):
+    
+    mindex = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+    
+    if left <= n-1 and data[left] < data[mindex]:
+        mindex = left
+        
+    if right <= n-1 and data[right] < data[mindex]:
+        mindex = right
+        
+    if i != mindex:
+        data[i], data[mindex] = data[mindex], data[i]
+        swaps.append((i, mindex))
+        heap(data, mindex, n, swaps)
+    
 
 def main():
     
-    # TODO : add input and corresponding checks
-    # add another input for I or F 
-    # first two tests are from keyboard, third test is from a file
+    print("[!] \tUse an input to choose files or input - F or I ?")
+    textInput = input(":").upper()
+    if "F" in textInput:
+        print("[!] \tEnter file name or file path. For example '0'.")
+        fName = "tests/" + input(": ")
+        if 'a' in fName:
+            print("[Err]: \tForbidden name")
+            return   
+        file = open(fName, "r")
 
+        n = int(file.readline())
+        data = list(map(int, file.readline().split()))
+        assert len(data) == n
+        swaps = build_heap(data)
 
-    # input from keyboard
-    n = int(input())
-    data = list(map(int, input().split()))
-
-    # checks if lenght of data is the same as the said lenght
-    assert len(data) == n
-
-    # calls function to assess the data 
-    # and give back all swaps
-    swaps = build_heap(data)
-
-    # TODO: output how many swaps were made, 
-    # this number should be less than 4n (less than 4*len(data))
-
-
+    elif "I" in textInput:
+        print("[!] \tEnter text below.")
+        n = int(input(": "))
+        data = list(map(int, input(": ").split()))
+        assert len(data) == n
+        swaps = build_heap(data)
+    else:
+        print("[Err]:\tWrong input")
+    pass
     # output all swaps
     print(len(swaps))
     for i, j in swaps:
