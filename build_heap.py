@@ -42,14 +42,14 @@ def main():
         n = int(file.readline())
         data = list(map(int, file.readline().split()))
         assert len(data) == n
-        swaps = buildHeap(data)
+        swaps = build_heap(data)
 
     elif "I" in textInput:
         print("[!] \tEnter text below.")
         n = int(input(": "))
         data = list(map(int, input(": ").split()))
         assert len(data) == n
-        swaps = buildHeap(data)
+        swaps = build_heap(data)
     else:
         print("[Err]:\tWrong input")
     pass
