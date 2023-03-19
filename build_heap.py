@@ -1,4 +1,4 @@
-# python3 Estella Saveljeva 221RDB176 7.gr
+# Estella Saveljeva 221RDB176 7.gr
 
 def build_heap(data):
     swaps = []
