@@ -15,9 +15,9 @@ def heap(data, i, n, swaps)
     left = 2 * i + 1
     right = 2 * i + 2
     
-    if left <= n and data[left] < data[mindex]:
+    if left <= n-1 and data[left] < data[mindex]:
         mindex = left
-    if right <= n and data[right] < data[mindex]:
+    if right <= n-1 and data[right] < data[mindex]:
         mindex = right
     if i != mindex:
         data[i], data[mindex] = data[mindex], data[i]
@@ -31,11 +31,11 @@ def main():
     textInput = input(":").upper()
     if "F" in textInput:
         print("[!] \tEnter file name or file path. For example '0'.")
-        fileName = "tests/" + input(": ")
-        if 'a' in fileName:
+        fName = "tests/" + input(": ")
+        if 'a' in fName:
             print("[Err]: \tForbidden name")
             return   
-        file = open(fileName, "r")
+        file = open(fName, "r")
 
         n = int(file.readline())
         data = list(map(int, file.readline().split()))
