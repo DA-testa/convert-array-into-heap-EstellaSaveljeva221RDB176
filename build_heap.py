@@ -17,8 +17,10 @@ def heap(data, i, n, swaps)
     
     if left <= n-1 and data[left] < data[mindex]:
         mindex = left
+        
     if right <= n-1 and data[right] < data[mindex]:
         mindex = right
+        
     if i != mindex:
         data[i], data[mindex] = data[mindex], data[i]
         swaps.append((i, mindex))
